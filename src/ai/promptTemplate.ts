@@ -1,7 +1,7 @@
 import type { AuditResult } from "../audit/types.js";
 
 export function buildAiAnalysisPrompt(result: AuditResult): string {
-  return `You are an AI search visibility consultant. Analyze the following website data and identify how well this business is positioned for AI driven search results. Focus on Google AI Overviews, AI Mode, ChatGPT Search, Perplexity style citation engines, Bing Copilot, and local map based AI answers. Do not guarantee rankings. Explain strengths, weaknesses, and practical fixes. Prioritize actions that improve crawlability, structured data, answer clarity, entity clarity, trust, local relevance, and citation readiness. Return structured JSON with findings, scores, recommendations, and copy examples.
+  return `You are an AI search visibility consultant. Analyze the following website data and identify how well this business is positioned for AI driven search results. Focus on Google AI Overviews, AI Mode, ChatGPT Search, Perplexity style citation engines, Claude-style answer engines, Bing Copilot, and local map based AI answers. Do not guarantee rankings. Explain strengths, weaknesses, and practical fixes. Prioritize actions that improve crawlability, structured data, answer clarity, entity clarity, trust, local relevance, and citation readiness. Return structured JSON with findings, scores, recommendations, and copy examples.
 
 Required JSON shape:
 {
@@ -38,6 +38,6 @@ Required JSON shape:
 }
 
 Website data:
-${JSON.stringify(result, null, 2)}
+${JSON.stringify(result, null, 2).slice(0, 60000)}
 `;
 }
