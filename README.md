@@ -1,21 +1,185 @@
 # AI Search Visibility Auditor Skill
 
-AI Search Visibility Auditor helps businesses see whether their website is crawlable, clearly structured, trustworthy, and ready to be understood by AI-driven search and answer engines, including Claude-style assistants.
+AI Search Visibility Auditor helps businesses understand whether their website is crawlable, clearly structured, trustworthy, and ready to be understood by AI-driven search and answer engines, including Google AI Overviews, Google AI Mode, ChatGPT Search, Perplexity, Claude-style assistants, Bing Copilot, Gemini-style answer engines, and local map based AI results.
 
-The skill evaluates practical signals for Google AI Overviews, Google AI Mode, ChatGPT Search, Perplexity, Bing Copilot, Gemini-style answer engines, Claude-style assistants, and local map based AI results.
+It is built for agencies, consultants, local businesses, SaaS teams, ecommerce brands, service companies, and content teams that need a practical audit, not a gimmick. The skill crawls a site, extracts page signals, scores visibility readiness, and produces report-ready recommendations that explain what to fix and why it matters.
 
-## What It Does
+This tool does not guarantee rankings or AI citations. It evaluates technical, content, local, trust, and structured data signals that may improve crawlability, clarity, answer quality, and citation readiness.
 
-- Validates and normalizes a submitted URL.
-- Detects redirects and final resolved URL.
-- Checks `robots.txt` access for major search and AI crawlers.
-- Discovers sitemaps from common paths and robots declarations.
-- Crawls the homepage and selected internal pages.
-- Extracts metadata, headings, schema, links, NAP, FAQs, local signals, trust signals, CTAs, and content blocks.
-- Audits every crawled page for AEO and GEO readiness using H1s, headings, direct answer coverage, entity clarity, local clarity, proof, schema, and citation readiness.
-- Scores AI search visibility across technical, crawlability, schema, content, entity, local, trust, citation, conversion, and competitor categories.
-- Generates page-level tips, missing questions, recommended content blocks, prioritized recommendations, and report-ready exports.
-- Includes starter industry templates for local service businesses, SaaS, ecommerce, agencies, legal, dental, restaurants, and more.
+## Why This Exists
+
+Traditional SEO audits often stop at titles, meta descriptions, backlinks, and generic technical checks. AI search and answer engines need more context.
+
+They need to understand:
+
+- What the business does.
+- Who it serves.
+- Where it operates.
+- Which services or products matter most.
+- Whether pages answer real customer questions.
+- Whether the site has structured data, proof, trust signals, and local entity clarity.
+- Whether crawlers can access the content.
+- Whether the page is useful enough to be summarized, recommended, or cited.
+
+This skill turns those signals into a clear AI Search Visibility Score, page-level AEO/GEO findings, and prioritized fixes.
+
+## What It Audits
+
+The audit checks both technical access and business/content quality.
+
+Core audit areas:
+
+- URL validation, normalization, redirects, and final resolved URL.
+- `robots.txt` access for Googlebot, Bingbot, OAI-SearchBot, GPTBot, ChatGPT-User, PerplexityBot, ClaudeBot, and Applebot.
+- Sitemap discovery from common paths and robots declarations.
+- Homepage and internal page crawling.
+- Metadata, titles, descriptions, canonicals, indexability, headings, links, images, alt text, forms, and CTAs.
+- JSON-LD schema extraction and structured data type detection.
+- Local signals such as NAP, phone numbers, addresses, city mentions, service areas, embedded maps, and local trust proof.
+- Content signals such as FAQs, short answer blocks, service clarity, pricing mentions, process explanations, comparison language, and trust proof.
+- EEAT-style signals such as About, Contact, reviews, testimonials, certifications, licenses, policies, and social profiles.
+- Competitor comparison when competitor URLs are provided.
+
+## Page-Level AEO And GEO Layer
+
+The skill includes a crawler-based page readiness layer for AEO and GEO.
+
+For every crawled page, it evaluates:
+
+- H1 quality.
+- H2/H3 structure.
+- Word count and explanatory depth.
+- Whether the page answers who, what, where, when, why, and how.
+- Whether there is a concise answer block near the top.
+- FAQ readiness.
+- Conversational search match.
+- Service or product entity clarity.
+- Local entity clarity.
+- Trust proof.
+- Schema specificity.
+- Citation readiness.
+- Image alt text quality.
+
+Each page receives:
+
+- AEO Score.
+- GEO Score.
+- Answer Readiness Score.
+- Entity Clarity Score.
+- Citation Readiness Score.
+- Label: AI Ready, Strong, Needs Improvement, Weak, or At Risk.
+- Strengths.
+- Gaps.
+- Plain-English tips.
+- Missing questions the page should answer.
+- Recommended content blocks to add.
+
+Example page-level recommendation:
+
+```text
+Improve AEO/GEO readiness on /service/tankless-water-heater/
+
+Why it matters:
+AI answer engines need clear page structure, direct answers, entity signals, proof, and schema to understand when a page is relevant.
+
+How to fix:
+Add direct answers for who the page helps, what is offered, where it is available, when to act, why to choose the business, and how the process works. Add a 40-70 word summary answer immediately below the H1. Add LocalBusiness, Service, FAQPage, BreadcrumbList, and industry-specific schema where relevant.
+```
+
+## Scores
+
+The overall AI Search Visibility Score is 0 to 100.
+
+Score labels:
+
+- `90-100`: AI Ready
+- `75-89`: Strong
+- `60-74`: Needs Improvement
+- `40-59`: Weak
+- `0-39`: At Risk
+
+Score categories:
+
+- Technical Foundation
+- AI Crawlability
+- Structured Data
+- Content Answer Readiness
+- Entity Clarity
+- Local SEO
+- Trust Signal
+- Authority and Citation
+- Conversion Readiness
+- Competitor Advantage
+
+The scoring is deterministic first. AI can enrich recommendations later, but the score is based on observed crawl data and explainable signals.
+
+## Recommendation Engine
+
+Every recommendation is designed to be useful in a real client report.
+
+Recommendations include:
+
+- Issue title.
+- Severity: Critical, High, Medium, Low.
+- Priority: Do this now, Do this next, Do this later.
+- Why it matters.
+- Business impact.
+- How to fix.
+- Estimated difficulty.
+- Estimated time.
+- Example issue.
+- Copy-ready recommendation.
+
+The skill avoids language like guaranteed ranking, trick AI, hack the algorithm, and secret loophole. It uses business-friendly language such as improve eligibility, strengthen signals, increase clarity, improve crawlability, improve citation readiness, and improve answer quality.
+
+## Example Test Result
+
+Testing against `https://deltaplumbingatlanta.com` with plumbing/local inputs produced:
+
+- Overall score: `88/100`
+- Label: `Strong`
+- Crawled pages: `10`
+- Formal recommendations: `8`
+- Technical Foundation: `100`
+- AI Crawlability: `100`
+- Structured Data: `40`
+- Local SEO: `80`
+
+The page-level AEO/GEO layer identified useful content opportunities, including:
+
+- Add short answer blocks near the top of service pages.
+- Add buyer-focused FAQs.
+- Improve service-specific schema.
+- Strengthen pages with weak who, what, where, when, why, and how coverage.
+- Add descriptive image alt text.
+- Improve weaker AEO pages such as service area, tankless water heater, and sewer problem pages.
+
+## Outputs
+
+Audit runs create files in the selected output directory:
+
+- `audit.json`: Raw structured audit data.
+- `report.md`: Business-friendly report.
+- `issues.csv`: Findings and recommendations.
+
+The Markdown report includes:
+
+- Executive summary.
+- Scorecard.
+- Strengths.
+- Critical issues.
+- Quick wins.
+- Technical findings.
+- AI bot access findings.
+- Structured data findings.
+- Page AEO and GEO readiness.
+- Content readiness.
+- Local visibility.
+- Prioritized recommendations.
+- 30/60/90-day action plan.
+- Schema recommendations.
+- Google Business Profile checklist.
+- Legal and ethical disclaimer.
 
 ## Install
 
@@ -34,6 +198,8 @@ https://github.com/livingcoastal-hue/ai-search-visibility-auditor-skill.git
 The skill entrypoint is `SKILL.md` at the repository root. The runnable audit engine lives in `src/`.
 
 ## Run Locally
+
+Basic audit:
 
 ```bash
 npm run audit -- --url https://example.com
@@ -55,6 +221,18 @@ With competitors:
 
 ```bash
 npm run audit -- --url https://example.com --competitors https://a.com,https://b.com
+```
+
+With a custom crawl size and output folder:
+
+```bash
+npm run audit -- \
+  --url https://example.com \
+  --industry "Plumbing" \
+  --city "Atlanta" \
+  --state "GA" \
+  --max-pages 10 \
+  --out out-example-audit
 ```
 
 ## Environment Variables
@@ -85,23 +263,7 @@ The crawler:
 - Defaults to 25 pages.
 - Limits response size and request timeouts.
 
-## How Scoring Works
-
-Scoring is deterministic and explainable. The scoring engine awards points for signals such as:
-
-- Search crawler access.
-- AI search crawler access.
-- Sitemap availability.
-- Indexable main pages.
-- Metadata quality.
-- Schema presence and completeness.
-- Clear business/entity information.
-- FAQs and direct answer blocks.
-- NAP and local service-area clarity.
-- Reviews, testimonials, about/contact pages, policies, and trust proof.
-- Strong CTAs and conversion paths.
-
-Scores are normalized to 100.
+This makes the audit safer for local use and helps prevent accidental SSRF-style crawling.
 
 ## How AI Analysis Works
 
@@ -109,15 +271,21 @@ AI enrichment is optional. The deterministic audit creates the evidence base fir
 
 AI recommendations should improve wording, prioritization, examples, schema copy, and content ideas. They should not override the factual crawl data.
 
-## Exports
+## Project Structure
 
-Audit runs create files in `out/`:
+```text
+src/
+  ai/                 AI prompt and output schema
+  audit/              crawler, robots, sitemap, scoring, recommendations
+  data/               industry templates
+  report/             Markdown, CSV, schema, and content output helpers
+  security/           URL and SSRF safety checks
+tests/                scoring and content readiness tests
+SKILL.md              Codex skill instructions
+README.md            project documentation
+```
 
-- `audit.json`: Raw structured audit data.
-- `report.md`: Business-friendly report.
-- `issues.csv`: Findings and recommendations.
-
-## Deploy
+## Deploy As A Web App
 
 This repository is a skill plus CLI MVP. To turn it into a web application:
 
@@ -130,6 +298,7 @@ This repository is a skill plus CLI MVP. To turn it into a web application:
    - `POST /api/competitors/analyze`
 3. Persist results in PostgreSQL using the models in `templates/prisma-schema.prisma`.
 4. Run audits in a background worker for production scale.
+5. Add PDF export, saved clients, white label reports, and lead capture when moving beyond the CLI MVP.
 
 ## Known Limitations
 
@@ -137,6 +306,7 @@ This repository is a skill plus CLI MVP. To turn it into a web application:
 - Google Business Profile is checklist-based unless a GBP integration is added.
 - Live SERP, AI Overview, ChatGPT Search, Perplexity, Claude-style assistants, Gemini, and Bing Copilot citation testing requires external platform access.
 - HTML extraction is strong enough for MVP audits, but browser-rendered JavaScript sites may need Playwright crawling.
+- Competitor comparison is intentionally lightweight in the MVP and can be expanded with deeper crawl and SERP data.
 
 ## Future Improvements
 
