@@ -12,8 +12,9 @@ The skill evaluates practical signals for Google AI Overviews, Google AI Mode, C
 - Discovers sitemaps from common paths and robots declarations.
 - Crawls the homepage and selected internal pages.
 - Extracts metadata, headings, schema, links, NAP, FAQs, local signals, trust signals, CTAs, and content blocks.
+- Audits every crawled page for AEO and GEO readiness using H1s, headings, direct answer coverage, entity clarity, local clarity, proof, schema, and citation readiness.
 - Scores AI search visibility across technical, crawlability, schema, content, entity, local, trust, citation, conversion, and competitor categories.
-- Generates prioritized recommendations and report-ready exports.
+- Generates page-level tips, missing questions, recommended content blocks, prioritized recommendations, and report-ready exports.
 - Includes starter industry templates for local service businesses, SaaS, ecommerce, agencies, legal, dental, restaurants, and more.
 
 ## Install
