@@ -1,6 +1,6 @@
 # AI Search Visibility Auditor Skill
 
-A standalone Codex skill and runnable TypeScript MVP for auditing whether a business website is visible, crawlable, structured, trustworthy, and citation ready for AI-driven search experiences.
+A standalone Codex skill and runnable TypeScript MVP for auditing whether a business website is visible, crawlable, structured, trustworthy, and citation ready for AI-driven search and answer experiences, including Claude-style assistants.
 
 The skill evaluates practical signals for Google AI Overviews, Google AI Mode, ChatGPT Search, Perplexity, Bing Copilot, Gemini-style answer engines, Claude-style assistants, and local map based AI results.
 
@@ -135,7 +135,7 @@ This repository is a skill plus CLI MVP. To turn it into a web application:
 
 - Page speed is estimated from response timing and page weight, not PageSpeed Insights.
 - Google Business Profile is checklist-based unless a GBP integration is added.
-- Live SERP, AI Overview, ChatGPT Search, Perplexity, Gemini, and Bing Copilot citation testing requires external platform access.
+- Live SERP, AI Overview, ChatGPT Search, Perplexity, Claude-style assistants, Gemini, and Bing Copilot citation testing requires external platform access.
 - HTML extraction is strong enough for MVP audits, but browser-rendered JavaScript sites may need Playwright crawling.
 
 ## Future Improvements
