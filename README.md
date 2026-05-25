@@ -1,6 +1,6 @@
 # AI Search Visibility Auditor Skill
 
-A standalone Codex skill and runnable TypeScript MVP for auditing whether a business website is visible, crawlable, structured, trustworthy, and citation ready for AI-driven search and answer experiences, including Claude-style assistants.
+AI Search Visibility Auditor helps businesses see whether their website is crawlable, clearly structured, trustworthy, and ready to be understood by AI-driven search and answer engines, including Claude-style assistants.
 
 The skill evaluates practical signals for Google AI Overviews, Google AI Mode, ChatGPT Search, Perplexity, Bing Copilot, Gemini-style answer engines, Claude-style assistants, and local map based AI results.
 
