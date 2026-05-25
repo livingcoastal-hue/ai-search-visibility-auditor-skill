@@ -1,6 +1,6 @@
 ---
 name: ai-search-visibility-auditor
-description: Audit a website for AI search visibility, crawlability, schema, answer readiness, local SEO, trust, citations, and report-ready recommendations for Google AI Overviews, Google AI Mode, ChatGPT Search, Perplexity, Bing Copilot, Gemini-style answer engines, and local map based AI results.
+description: Audit a website for AI search visibility, crawlability, schema, answer readiness, local SEO, trust, citations, and report-ready recommendations for Google AI Overviews, Google AI Mode, ChatGPT Search, Perplexity, Claude-style assistants, Bing Copilot, Gemini-style answer engines, and local map based AI results.
 ---
 
 # AI Search Visibility Auditor
