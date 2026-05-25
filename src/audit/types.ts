@@ -90,6 +90,23 @@ export interface PageAudit {
   bytes: number;
 }
 
+export interface PageContentReadinessAudit {
+  url: string;
+  title?: string;
+  h1: string[];
+  aeoScore: number;
+  geoScore: number;
+  answerReadinessScore: number;
+  entityClarityScore: number;
+  citationReadinessScore: number;
+  label: string;
+  strengths: string[];
+  gaps: string[];
+  tips: string[];
+  missingQuestions: string[];
+  recommendedBlocks: string[];
+}
+
 export interface ScoreBreakdown {
   technicalFoundation: number;
   aiCrawlability: number;
@@ -132,6 +149,7 @@ export interface AuditResult {
   robots: RobotsAudit;
   sitemap: SitemapAudit;
   pages: PageAudit[];
+  pageContentAudits: PageContentReadinessAudit[];
   scores: ScoreBreakdown;
   scoreLabel: string;
   strengths: string[];
