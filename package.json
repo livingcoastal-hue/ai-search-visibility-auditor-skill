@@ -1,7 +1,7 @@
 {
   "name": "ai-search-visibility-auditor-skill",
   "version": "0.1.0",
-  "description": "Codex skill and TypeScript CLI MVP for AI search visibility, GEO, AEO, crawlability, schema, local SEO, trust, and citation readiness audits.",
+  "description": "Codex skill and TypeScript CLI MVP for AI search visibility, GEO, AEO, Claude-style answer readiness, crawlability, schema, local SEO, trust, and citation readiness audits.",
   "private": true,
   "type": "module",
   "repository": {
@@ -19,6 +19,7 @@
     "crawler",
     "chatgpt-search",
     "perplexity",
+    "claude",
     "ai-overviews"
   ],
   "license": "MIT",
