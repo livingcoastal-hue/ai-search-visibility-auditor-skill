@@ -44,10 +44,11 @@ If only a URL is provided, run the audit with inferred details and state which i
 4. Discover sitemaps from common paths and robots declarations.
 5. Crawl the homepage and important internal pages up to the configured limit.
 6. Extract metadata, headings, canonicals, indexability, links, images, schema, NAP, FAQs, reviews, testimonials, CTAs, trust signals, local signals, and content snippets.
-7. Score the site across the core categories.
-8. Generate prioritized findings and recommendations.
-9. Build a report with executive summary, scorecard, findings, 30/60/90-day roadmap, schema recommendations, content recommendations, and appendices.
-10. If competitors are provided, crawl and compare their signals against the audited site.
+7. Audit every crawled page for AEO and GEO readiness using H1s, headings, body copy, FAQs, short-answer coverage, entity clarity, local clarity, trust proof, schema, and citation readiness.
+8. Score the site across the core categories.
+9. Generate prioritized findings and recommendations.
+10. Build a report with executive summary, scorecard, page-level AEO/GEO findings, 30/60/90-day roadmap, schema recommendations, content recommendations, and appendices.
+11. If competitors are provided, crawl and compare their signals against the audited site.
 
 ## Scoring Categories
 
@@ -129,6 +130,8 @@ The audit result must include:
 - Sitemap findings
 - Structured data findings
 - Content readiness findings
+- Page-level AEO and GEO readiness findings
+- Missing questions and recommended content blocks
 - Local visibility findings
 - Trust and authority findings
 - Competitor gap findings when available
