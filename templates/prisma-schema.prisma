@@ -1,0 +1,101 @@
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  clients   Client[]
+  createdAt DateTime @default(now())
+}
+
+model Client {
+  id        String  @id @default(cuid())
+  userId    String
+  user      User    @relation(fields: [userId], references: [id])
+  name      String
+  website   String
+  industry  String?
+  city      String?
+  state     String?
+  audits    Audit[]
+  createdAt DateTime @default(now())
+}
+
+model Audit {
+  id        String        @id @default(cuid())
+  clientId  String?
+  client    Client?       @relation(fields: [clientId], references: [id])
+  url       String
+  status    AuditStatus   @default(pending)
+  score     Int?
+  rawJson   Json?
+  pages     AuditPage[]
+  findings  AuditFinding[]
+  reports   Report[]
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+}
+
+model AuditPage {
+  id        String @id @default(cuid())
+  auditId   String
+  audit     Audit  @relation(fields: [auditId], references: [id])
+  url       String
+  title     String?
+  wordCount Int?
+  schema    Json?
+}
+
+model AuditFinding {
+  id        String @id @default(cuid())
+  auditId   String
+  audit     Audit  @relation(fields: [auditId], references: [id])
+  title     String
+  severity  String
+  priority  String
+  detail    String
+}
+
+model Recommendation {
+  id        String @id @default(cuid())
+  auditId   String
+  title     String
+  severity  String
+  priority  String
+  body      String
+}
+
+model CompetitorAudit {
+  id            String @id @default(cuid())
+  auditId        String
+  competitorUrl  String
+  rawJson        Json?
+}
+
+model GeneratedContent {
+  id        String @id @default(cuid())
+  auditId   String
+  type      String
+  content   String
+}
+
+model GeneratedSchema {
+  id        String @id @default(cuid())
+  auditId   String
+  type      String
+  jsonLd    Json
+}
+
+model Report {
+  id        String @id @default(cuid())
+  auditId   String
+  audit     Audit  @relation(fields: [auditId], references: [id])
+  format    String
+  content   String
+  createdAt DateTime @default(now())
+}
+
+enum AuditStatus {
+  pending
+  running
+  completed
+  failed
+}

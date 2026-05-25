@@ -1,0 +1,42 @@
+{
+  "name": "ai-search-visibility-auditor-skill",
+  "version": "0.1.0",
+  "description": "Codex skill and TypeScript CLI MVP for AI search visibility, GEO, AEO, crawlability, schema, local SEO, trust, and citation readiness audits.",
+  "private": true,
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/livingcoastal-hue/ai-search-visibility-auditor-skill.git"
+  },
+  "keywords": [
+    "codex-skill",
+    "ai-search",
+    "geo",
+    "aeo",
+    "seo",
+    "local-seo",
+    "schema",
+    "crawler",
+    "chatgpt-search",
+    "perplexity",
+    "ai-overviews"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "audit": "tsx src/cli.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "commander": "^12.1.0",
+    "robots-parser": "^3.0.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

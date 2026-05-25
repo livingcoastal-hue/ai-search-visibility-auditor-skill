@@ -1,0 +1,13 @@
+{
+  "url": "https://example.com",
+  "businessName": "Example Plumbing",
+  "industry": "Plumbing",
+  "city": "Atlanta",
+  "state": "GA",
+  "country": "US",
+  "targetServiceOrProduct": "Emergency plumbing",
+  "targetAudience": "Homeowners with urgent plumbing problems",
+  "competitorUrls": [],
+  "googleBusinessProfileUrl": "",
+  "mainKeywords": ["emergency plumber atlanta", "water heater repair", "drain cleaning"]
+}
