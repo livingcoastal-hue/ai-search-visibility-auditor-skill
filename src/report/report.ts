@@ -59,6 +59,10 @@ ${result.robots.recommendations.length ? `Recommendations:\n${result.robots.reco
 
 ${result.pages.flatMap((page) => page.schema.map((schema) => `- ${page.url}: ${schema.type} (${schema.valid ? "valid" : "invalid"})`)).join("\n") || "- No structured data detected."}
 
+## Page AEO and GEO Readiness
+
+${formatPageContentAudits(result)}
+
 ## Content Readiness
 
 ${result.contentSuggestions.map((item) => `- ${item}`).join("\n")}
@@ -119,6 +123,26 @@ function formatRecommendations(recommendations: Recommendation[]): string {
 - Difficulty: ${item.estimatedDifficulty}
 - Estimated time: ${item.estimatedTime}
 - Example: ${item.example}`).join("\n\n");
+}
+
+function formatPageContentAudits(result: AuditResult): string {
+  if (!result.pageContentAudits.length) return "- No page content audits were generated.";
+
+  return result.pageContentAudits.map((audit) => `### ${audit.title ?? audit.url}
+
+- URL: ${audit.url}
+- Label: ${audit.label}
+- AEO Score: ${audit.aeoScore}
+- GEO Score: ${audit.geoScore}
+- Answer Readiness: ${audit.answerReadinessScore}
+- Entity Clarity: ${audit.entityClarityScore}
+- Citation Readiness: ${audit.citationReadinessScore}
+- H1: ${audit.h1.join(" | ") || "Missing"}
+- Strengths: ${audit.strengths.join("; ") || "None detected"}
+- Gaps: ${audit.gaps.join("; ") || "No major gaps detected"}
+- Tips: ${audit.tips.join("; ") || "No tips generated"}
+- Missing Questions: ${audit.missingQuestions.join("; ") || "No obvious question gaps"}
+- Recommended Blocks: ${audit.recommendedBlocks.join("; ") || "No extra blocks recommended"}`).join("\n\n");
 }
 
 function renderIssuesCsv(recommendations: Recommendation[]): string {
