@@ -5,6 +5,7 @@ import { auditSitemap } from "./sitemap.js";
 import { crawlSite } from "./crawler.js";
 import { scoreAudit, scoreLabel } from "./scoring.js";
 import { buildRecommendations, buildStrengths } from "./recommendations.js";
+import { auditPageContentReadiness, contentReadinessRecommendations } from "./contentReadiness.js";
 import { generateContentSuggestions, generateLocalSuggestions } from "../report/contentSuggestions.js";
 import { generateSchemaSuggestions } from "../report/schemaSnippets.js";
 
@@ -36,9 +37,14 @@ export async function runAudit(input: AuditInput): Promise<AuditResult> {
   const robots = await auditRobots(urlResolution.finalUrl, timeoutMs);
   const sitemap = await auditSitemap(urlResolution.finalUrl, robots.sitemapUrls, timeoutMs);
   const pages = await crawlSite(urlResolution.finalUrl, robots, sitemap.discoveredUrls, maxPages, timeoutMs);
+  const pageContentAudits = auditPageContentReadiness(input, pages);
   const competitorGaps = await buildCompetitorGaps(input, pages, timeoutMs);
   const scores = scoreAudit(input, robots, sitemap, pages, competitorGaps.length);
   const recommendations = buildRecommendations(input, robots, sitemap, pages);
+  const contentSuggestions = [
+    ...generateContentSuggestions(input),
+    ...contentReadinessRecommendations(pageContentAudits)
+  ];
 
   return {
     input,
@@ -47,13 +53,14 @@ export async function runAudit(input: AuditInput): Promise<AuditResult> {
     robots,
     sitemap,
     pages,
+    pageContentAudits,
     scores,
     scoreLabel: scoreLabel(scores.overall),
     strengths: buildStrengths(pages, robots, sitemap),
     criticalIssues: recommendations.filter((item) => item.severity === "Critical").slice(0, 5),
     quickWins: recommendations.filter((item) => item.estimatedDifficulty === "Easy").slice(0, 10),
     recommendations,
-    contentSuggestions: generateContentSuggestions(input),
+    contentSuggestions,
     schemaSuggestions: generateSchemaSuggestions(input),
     localSuggestions: generateLocalSuggestions(input),
     competitorGaps,
@@ -114,6 +121,7 @@ function emptyResult(input: AuditInput, urlResolution: AuditResult["urlResolutio
     robots,
     sitemap,
     pages: [],
+    pageContentAudits: [],
     scores,
     scoreLabel: "At Risk",
     strengths: [],
